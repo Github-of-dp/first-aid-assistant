@@ -5,7 +5,7 @@ async function sendMessage() {
     let messagesDiv = document.getElementById("messages");
     messagesDiv.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
 
-    let response = await fetch("http://localhost:3000/chatbot", {
+    let response = await fetch("/chatbot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMessage })
