@@ -41,6 +41,7 @@ app.post("/chatbot", async (req, res) => {
         const result = responses[0].queryResult;
         res.json({ reply: result.fulfillmentText });
     } catch (err) {
+        console.log("KEY FROM ENV:", process.env.DIALOGFLOW_KEY_JSON);
         console.error("Dialogflow error:", err);
         res.status(500).json({ reply: "Something went wrong!" });
     }
