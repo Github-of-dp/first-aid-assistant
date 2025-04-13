@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>First Aid Assistant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Leaflet CSS for OpenStreetMap -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h2, h3 {
+            color: #333;
+            text-align: center;
+        }
+
+        #chatbox {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background: #fff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #messages p {
+            margin: 10px 0;
+        }
+
+        #messages strong {
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 12px;
+            border: none;
+            border-top: 1px solid #eee;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 28%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        #map {
+            height: 400px;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>AI First Aid Assistant</h2>
+
+    <div id="chatbox">
+        <div id="messages"></div>
+        <input type="text" id="userInput" placeholder="Ask a first-aid question...">
+        <button onclick="sendMessage()">Send</button>
+        <div class="button-row">
+            <button onclick="startListening()">🎤 Speak</button>
+            <button onclick="uploadImage()" title="Coming soon!">🖼️ Upload Injury Image</button>
+        </div>
+    </div>
+
+    <h3>Nearby Hospitals</h3>
+    <button onclick="findHospitals()">Find Hospitals Near Me</button>
+    <div id="map"></div>
+
+    <!-- Leaflet JS for OpenStreetMap -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+
+    <!-- Your main JS script -->
+    <script src="script.js"></script>
+</body>
+</html>

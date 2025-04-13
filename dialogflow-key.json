@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "first-aid-assistant-dciq",
+  "private_key_id": "fa6cc45434d7cf6ad9d64656995c70302ae22377",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCH91k0gA5JkcLQ\nF7hckEPyyAeoJ3Gdy/brJ+yzcqGA4TNnAS5CR8FGaWc/m1AhpT0aRTeh98mOyDAb\n3onfb7qa0fSfWmUNaaVKOwl+M6lSZjIH/j4GVFTs0QF93BSLS4ESEZ7NycSGbcvE\nt3mUgLLYj1C0yzYruh2vGuY2P9qCu4jIF5nLbYLXb8Fi3qF22BScxd+ymrTny5QN\nCqvq83uVkmqMtak7PQCCwxI9nE7921hdMrWMe6cSxLnKgUqep7eE9ylE6gtTA5bp\nZEcdeHTFcI3tnGXoC3eEye10A821wCpLJnk0AGSAwlUL/qHMJNI1BMLDZ1i/jzWm\nzE2oP3+XAgMBAAECggEAL2OcqdnAIRA2sES0Mz7tD998G7WzueXvJ8MAkwLvG3Zi\nbhJRRzSvPpVaMSc25KMtCsz5OPCeRa+sZOpJb6EHjxKCik/9TJF31MmC44OqDlgk\nM/j/MUGPYALw3Ccq2en1EJEnol4iqx/1l5jDPWkl7Kj23iy9srvpwLBFcL8Mr+ef\nCnKlOhu7TdflrHUOzAQ+jt8qBy8q1ZZJViVu9kdLaYravh11yVe2cZWgYV78qbC2\nfZwB/B6bVnskE2MULISZAYvKlIN8YIe2MBCEoLlK2p1jLA9ROU0Tp3iGzu7nYj6/\nSAA/4/Il3gUKjpNBZ2CIbE44sITE99YsML9SABXskQKBgQC/ayYRCCQdp4aoEs/+\njZqN18oiWPLoUPcCV0MYRHY4nVD6IenksQdghKyu6aKW4qoig6lbyHQQ25yYDELb\nXjKUFZr4ysvuT/QtphS7V94L/5+L7zKewTcJHW6tw5vmGRX1S9+XZXOng1Q7ry53\nuiVAelik2r7DM6JZZWqNshi4SwKBgQC11sWPWCfHkhi2o3ofujPKvb8Y7vKHsywt\nsK7LwgjGbGgIyE72hBiIa4QWL/Y+lnVfM5gDtrVlyYU25ZdnbvtuXcFp1Uztjz3e\nfr87PmuLZ5qnd2cvk1Yz2ZpX7POc6a5KtXKXnIqzWYXDP75BTrLM9lVcNrxK5fmu\nbdu+2PIeZQKBgQCBYCNHabA3Vs49dRGdpAmtCwd0tZfgCzEYJPCVS1h4JWPg2+Eh\nD8HDq4inZAPfZW3GjCSAg3hnGHe7kLXzXLRkwEGRHEg/V0zbOaBTiyzqASjNxKr6\n/+55u6ndyhLpr1TXCSQjSI+lza619E4839Rjww18xtgeSRzWvSQKhzAMBwKBgEJ3\nLaFWtLui8DuaB6KfOh0qPDaN6MKnQEe3JD1AQFre9yv2o75BzIHY4uAFSfnYnzBc\nOH1rBGUfQv0s8KmTDH5r8K2RlNvkltXD+HxcNY0wInyCDYp7TXAIYv0ulGFPnTCb\noDZAtwYVe+pBW3adoIeApvTc4PhzlU8nwsHApMdtAoGBAKPvmLqcN86Yi7x85Qre\nZcZ3HVRg7Vq9ofWdjubBFLuglNfk6CSsQFI8hGjAo47WQ0E9v8qQ8AFKX+ffH3FD\n0PstjX31MYriMKZqp2FdP2BuKteolnz+lo3/7g7diWfazuQaYNQqkMleYn4GZwA9\ngoG2jNlpvH1nFCRcmSFEfhGr\n-----END PRIVATE KEY-----\n",
+  "client_email": "dialogflow-agent@first-aid-assistant-dciq.iam.gserviceaccount.com",
+  "client_id": "114661184169310624093",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/dialogflow-agent%40first-aid-assistant-dciq.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
