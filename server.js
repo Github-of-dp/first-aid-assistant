@@ -44,8 +44,8 @@ app.post("/chatbot", async (req, res) => {
     const result = responses[0].queryResult;
     res.json({ reply: result.fulfillmentText });
   } catch (err) {
-    console.error("🔥 Dialogflow Error:", JSON.stringify(err, null, 2));
-    res.status(500).json({ reply: "Something went wrong!" });
+  console.error("🔥 Dialogflow Error:\n", err); // Log full error object
+  res.status(500).json({ reply: `Dialogflow error: ${err.message || "Unknown error"}` });
   }
 });
 
