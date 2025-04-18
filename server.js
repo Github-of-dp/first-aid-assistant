@@ -12,20 +12,20 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public"))); // Serve frontend
 
-// 🔐 Write Dialogflow key from environment variable into a file
+// 🔐 Rebuild the key file from the environment variable
 fs.writeFileSync("key.json", process.env.DIALOGFLOW_KEY_JSON);
 
-// ✅ Create Dialogflow client with key file
+// ✅ Dialogflow session client
 const sessionClient = new dialogflow.SessionsClient({
   keyFilename: "key.json"
 });
 
-// ✅ Correct Dialogflow project ID
+// ✅ Correct project ID
 const projectId = "first-aid-assistant-dciq";
 
 app.post("/chatbot", async (req, res) => {
   const userMessage = req.body.message;
-  const sessionId = "online-session"; // You can later make this unique per user
+  const sessionId = "online-session";
 
   const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
 
@@ -45,4 +45,10 @@ app.post("/chatbot", async (req, res) => {
     res.json({ reply: result.fulfillmentText });
   } catch (err) {
     console.error("🔥 Dialogflow Error:", JSON.stringify(err, null, 2));
-    res.status(500).json({ reply: "Something went wrong!"
+    res.status(500).json({ reply: "Something went wrong!" });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`🚀 Server running on port ${port}`);
+});
