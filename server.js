@@ -12,41 +12,37 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public"))); // Serve frontend
 
-// Secure way to load credentials
+// 🔐 Write Dialogflow key from environment variable into a file
 fs.writeFileSync("key.json", process.env.DIALOGFLOW_KEY_JSON);
 
+// ✅ Create Dialogflow client with key file
 const sessionClient = new dialogflow.SessionsClient({
-    keyFilename: "key.json",
+  keyFilename: "key.json"
 });
 
-const projectId = "erudite-wind-454317-t6";
+// ✅ Correct Dialogflow project ID
+const projectId = "first-aid-assistant-dciq";
 
 app.post("/chatbot", async (req, res) => {
-    const userMessage = req.body.message;
-    const sessionId = "123456";
-    const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
+  const userMessage = req.body.message;
+  const sessionId = "online-session"; // You can later make this unique per user
 
-    const request = {
-        session: sessionPath,
-        queryInput: {
-            text: {
-                text: userMessage,
-                languageCode: "en",
-            },
-        },
-    };
+  const sessionPath = sessionClient.projectAgentSessionPath(projectId, sessionId);
 
-    try {
-        const responses = await sessionClient.detectIntent(request);
-        const result = responses[0].queryResult;
-        res.json({ reply: result.fulfillmentText });
-    } catch (err) {
-        console.log("KEY FROM ENV:", process.env.DIALOGFLOW_KEY_JSON);
-        console.error("Dialogflow error:", err);
-        res.status(500).json({ reply: "Something went wrong!" });
+  const request = {
+    session: sessionPath,
+    queryInput: {
+      text: {
+        text: userMessage,
+        languageCode: "en"
+      }
     }
-});
+  };
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
+  try {
+    const responses = await sessionClient.detectIntent(request);
+    const result = responses[0].queryResult;
+    res.json({ reply: result.fulfillmentText });
+  } catch (err) {
+    console.error("🔥 Dialogflow Error:", JSON.stringify(err, null, 2));
+    res.status(500).json({ reply: "Something went wrong!"
