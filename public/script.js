@@ -1,66 +1,40 @@
-async function sendMessage() {
-    let userMessage = document.getElementById("userInput").value;
-    if (!userMessage) return;
+const messagesEl = document.getElementById("messages");
+const inputEl = document.getElementById("user-input");
 
-    let messagesDiv = document.getElementById("messages");
-    messagesDiv.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
-
-    let response = await fetch("/chatbot", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: userMessage })
-    });
-
-    let data = await response.json();
-    messagesDiv.innerHTML += `<p><strong>Bot:</strong> ${data.reply}</p>`;
-    document.getElementById("userInput").value = "";
+function addMessage(text, type = "bot") {
+  const msg = document.createElement("div");
+  msg.className = `msg ${type}`;
+  msg.innerText = text;
+  messagesEl.appendChild(msg);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
 }
 
-function startListening() {
-    alert("Voice input is coming soon!");
+async function sendMessage() {
+  const userMsg = inputEl.value.trim();
+  if (!userMsg) return;
+
+  addMessage(userMsg, "user");
+  inputEl.value = "";
+
+  try {
+    const res = await fetch("/chatbot", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: userMsg }),
+    });
+
+    const data = await res.json();
+    addMessage(data.reply || "I couldn't understand that.");
+  } catch (err) {
+    console.error(err);
+    addMessage("Something went wrong!");
+  }
+}
+
+function speak() {
+  addMessage("🎤 Voice input coming soon!", "bot");
 }
 
 function uploadImage() {
-    alert("Image classification is coming soon!");
-}
-
-let map;
-
-function initMap(lat, lon) {
-    map = L.map("map").setView([lat, lon], 13);
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; OpenStreetMap contributors',
-    }).addTo(map);
-
-    L.marker([lat, lon])
-        .addTo(map)
-        .bindPopup("You are here!")
-        .openPopup();
-}
-
-function findHospitals() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(async position => {
-            const lat = position.coords.latitude;
-            const lon = position.coords.longitude;
-            initMap(lat, lon);
-
-            const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=hospitals+near+${lat},${lon}&limit=10`);
-            const data = await response.json();
-
-            data.forEach(place => {
-                if (place.lat && place.lon) {
-                    L.marker([place.lat, place.lon])
-                        .addTo(map)
-                        .bindPopup(`<strong>${place.display_name}</strong>`);
-                }
-            });
-        }, () => {
-            alert("Unable to get your location.");
-        });
-    } else {
-        alert("Geolocation is not supported by your browser.");
-    }
-
+  addMessage("📷 Image analysis coming soon!", "bot");
 }
